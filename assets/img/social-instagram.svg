@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".4" r=".7">
+      <stop offset="0" stop-color="#2e0409"/>
+      <stop offset="1" stop-color="#070000"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#bg)"/>
+  <!-- Feuille de concept -->
+  <g fill="none" stroke="#4a0d14" stroke-width="1">
+    <path d="M40 520 H360 M40 80 H360"/>
+    <circle cx="200" cy="280" r="170" stroke-dasharray="4 8"/>
+  </g>
+  <!-- Heaume runique -->
+  <path fill="#0c0102" stroke="#7a0b17" stroke-width="3"
+        d="M200 110 C 280 110 310 180 310 250 L 310 330 C 310 380 270 420 230 440 L 200 470 L 170 440 C 130 420 90 380 90 330 L 90 250 C 90 180 120 110 200 110Z"/>
+  <path fill="#030000" d="M120 260 H280 L270 290 H215 L200 330 L185 290 H130Z"/>
+  <!-- Runes lumineuses -->
+  <g fill="none" stroke="#ff3d5e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M200 130 V230"/>
+    <path d="M200 160 L225 145 M200 185 L175 170"/>
+    <path d="M150 360 L165 340 L180 360 L165 380Z"/>
+    <path d="M220 360 L235 340 L250 360 M235 340 V390"/>
+  </g>
+  <g fill="none" stroke="#dc143c" stroke-opacity=".35" stroke-width="10" stroke-linecap="round">
+    <path d="M200 130 V230"/>
+  </g>
+  <!-- Annotations -->
+  <g stroke="#a3a9b4" stroke-opacity=".5" stroke-width="1.5" fill="none">
+    <path d="M310 250 L350 220 H380"/>
+    <path d="M90 330 L50 360 H20"/>
+  </g>
+</svg>

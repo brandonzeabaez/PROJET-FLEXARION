@@ -1,0 +1,5 @@
+| Tâche | Outil | Prompt (résumé) | Solution proposée | Utilité |
+| :--- | :--- | :--- | :--- | :--- |
+| Conception du site web | Gemini | Créer des maquettes pour un studio de jeux (Dark Médiéval Sci-Fi) et expliquer "devlog". | Structure des 5 pages clés (Accueil, Studio, Jeu, Devlogs, Contact) et définition claire. | Base conceptuelle solide pour poser l'univers. |
+| Ajustement graphique | Web Code Canvas | Change les couleurs en noir et rouge foncé. | Modification de la palette Tailwind pour un rendu Noir profond et Crimson (effets glow). | Parfait pour renforcer l'ambiance "Dark Fantasy" sanguinolente ! |
+| Intégration du site | Antigravity | Coder le site à partir de la maquette : responsive téléphone/ordinateur, ergonomique, bon score de performance. | 5 pages HTML/CSS/JS sans framework : CSS mobile-first fait main (remplace Tailwind CDN), icônes SVG (remplace FontAwesome), polices auto-hébergées, menu burger accessible, formulaire validé, contrastes AA. | Site léger, rapide et accessible, prêt à être hébergé. |

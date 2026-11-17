@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#050000"/>
+      <stop offset=".55" stop-color="#2a0306"/>
+      <stop offset="1" stop-color="#0a0101"/>
+    </linearGradient>
+    <radialGradient id="moon" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ff4d5e"/>
+      <stop offset=".55" stop-color="#b3101f"/>
+      <stop offset="1" stop-color="#b3101f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="halo" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#dc143c" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#dc143c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a0508" stop-opacity="0"/>
+      <stop offset="1" stop-color="#3a0508" stop-opacity=".7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#sky)"/>
+  <circle cx="860" cy="250" r="330" fill="url(#halo)"/>
+  <circle cx="860" cy="250" r="130" fill="url(#moon)"/>
+  <!-- Ville-forteresse lointaine -->
+  <path fill="#1a0204" d="M0 520 L0 430 60 430 60 380 80 360 100 380 100 440 160 440 160 330 175 300 190 330 190 450 250 450 250 400 300 400 300 350 320 320 340 350 340 460 420 460 420 380 440 260 460 380 460 470 540 470 540 410 600 410 600 300 615 250 630 300 630 480 700 480 700 400 760 400 760 340 790 290 820 340 820 470 900 470 900 360 915 200 930 360 930 470 1000 470 1000 410 1060 410 1060 330 1080 300 1100 330 1100 450 1180 450 1180 390 1220 390 1220 440 1280 440 1280 520Z"/>
+  <!-- Câbles haute tension -->
+  <g fill="none" stroke="#dc143c" stroke-opacity=".35" stroke-width="2">
+    <path d="M175 300 Q 300 380 440 260"/>
+    <path d="M440 260 Q 520 330 615 250"/>
+    <path d="M615 250 Q 760 360 915 200"/>
+    <path d="M915 200 Q 1000 300 1080 300"/>
+  </g>
+  <g fill="#ff3d5e">
+    <circle cx="440" cy="262" r="3"/><circle cx="915" cy="202" r="3"/><circle cx="615" cy="252" r="3"/>
+  </g>
+  <rect y="420" width="1280" height="300" fill="url(#fog)"/>
+  <!-- Sol -->
+  <path fill="#070000" d="M0 600 Q 320 560 640 590 T 1280 580 V720 H0Z"/>
+  <!-- Chevalier -->
+  <g fill="#020000">
+    <path d="M610 600 L620 470 600 440 605 395 625 375 640 360 655 375 675 395 680 440 660 470 670 600 650 600 640 500 630 600Z"/>
+    <path d="M626 362 Q640 330 654 362 L652 380 628 380Z"/>
+    <path d="M598 440 L560 520 572 526 612 452Z"/>
+    <path d="M682 438 L740 330 748 336 694 450Z"/>
+  </g>
+  <path d="M740 330 L812 196" stroke="#dc143c" stroke-width="5" stroke-linecap="round"/>
+  <path d="M740 330 L812 196" stroke="#ff8a9a" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M630 368 h20" stroke="#ff3d5e" stroke-width="3"/>
+  <!-- Braises -->
+  <g fill="#ff3d5e">
+    <circle cx="200" cy="560" r="2"/><circle cx="340" cy="510" r="1.5"/><circle cx="520" cy="540" r="2"/>
+    <circle cx="780" cy="520" r="1.5"/><circle cx="980" cy="550" r="2"/><circle cx="1120" cy="500" r="1.5"/>
+  </g>
+</svg>

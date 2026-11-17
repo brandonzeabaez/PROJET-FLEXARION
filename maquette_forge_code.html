@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forge & Code | Studio de Jeux Vidéos</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel (Medieval) and Rajdhani (Sci-Fi) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'void': '#030000', // Noir profond
+                        'forge-dark': '#0a0202', // Noir avec une très légère teinte rouge
+                        'forge-border': '#330a0a', // Bordure rouge très foncée
+                        'crimson': '#dc143c', // Rouge éclatant (remplace le cyan)
+                        'blood-red': '#8b0000', // Rouge sang / profond (remplace le orange)
+                        'dark-crimson': '#5c0000', // Rouge très sombre pour les ombres
+                    },
+                    fontFamily: {
+                        'medieval': ['Cinzel', 'serif'],
+                        'scifi': ['Rajdhani', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030000;
+            color: #d1d5db;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030000; }
+        ::-webkit-scrollbar-thumb { background: #330a0a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8b0000; }
+
+        /* Custom Glow Effects */
+        .glow-red { text-shadow: 0 0 10px rgba(220, 20, 60, 0.7), 0 0 20px rgba(220, 20, 60, 0.4); }
+        .glow-dark-red { text-shadow: 0 0 10px rgba(139, 0, 0, 0.8), 0 0 20px rgba(139, 0, 0, 0.4); }
+        
+        .box-glow-red { box-shadow: 0 0 15px rgba(220, 20, 60, 0.15); border: 1px solid rgba(220, 20, 60, 0.3); }
+        .box-glow-red:hover { box-shadow: 0 0 25px rgba(220, 20, 60, 0.4); border-color: rgba(220, 20, 60, 0.8); }
+
+        .box-glow-dark-red { box-shadow: 0 0 15px rgba(139, 0, 0, 0.15); border: 1px solid rgba(139, 0, 0, 0.3); }
+        .box-glow-dark-red:hover { box-shadow: 0 0 25px rgba(139, 0, 0, 0.4); border-color: rgba(139, 0, 0, 0.8); }
+
+        /* Buttons */
+        .btn-sci-fi {
+            position: relative;
+            background: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .btn-sci-fi::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-sci-fi:hover::before { left: 100%; }
+
+        /* Hexagon / Grid background pattern */
+        .bg-pattern {
+            background-image: linear-gradient(rgba(220, 20, 60, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(220, 20, 60, 0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: center center;
+        }
+
+        /* Abstract Particles Animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+            50% { transform: translateY(-20px) rotate(5deg); opacity: 0.5; }
+            100% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+        }
+        .rune-particle { animation: float 6s infinite ease-in-out; }
+    </style>
+</head>
+<body class="bg-pattern antialiased flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-void/90 backdrop-blur-md border-b border-forge-border transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 cursor-pointer" onclick="navigate('accueil')">
+                    <h1 class="font-medieval text-2xl md:text-3xl font-bold tracking-widest text-white glow-red">
+                        FORGE <span class="text-blood-red">&</span> CODE
+                    </h1>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <button onclick="navigate('accueil')" class="nav-link text-gray-300 hover:text-crimson hover:glow-red px-3 py-2 rounded-md text-lg font-medium transition-colors" data-target="accueil">Accueil</button>
+                        <button onclick="navigate('studio')" class="nav-link text-gray-300 hover:text-crimson hover:glow-red px-3 py-2 rounded-md text-lg font-medium transition-colors" data-target="studio">Le Studio</button>
+                        <button onclick="navigate('jeu')" class="nav-link text-gray-300 hover:text-blood-red hover:glow-dark-red px-3 py-2 rounded-md text-lg font-medium transition-colors" data-target="jeu">Le Jeu</button>
+                        <button onclick="navigate('devlogs')" class="nav-link text-gray-300 hover:text-crimson hover:glow-red px-3 py-2 rounded-md text-lg font-medium transition-colors" data-target="devlogs">Devlogs</button>
+                        <button onclick="navigate('contact')" class="nav-link text-gray-300 hover:text-crimson hover:glow-red px-3 py-2 rounded-md text-lg font-medium transition-colors" data-target="contact">Contact</button>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-forge-dark border-b border-forge-border">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <button onclick="navigate('accueil')" class="text-left text-gray-300 hover:text-crimson block px-3 py-2 rounded-md text-base font-medium">Accueil</button>
+                <button onclick="navigate('studio')" class="text-left text-gray-300 hover:text-crimson block px-3 py-2 rounded-md text-base font-medium">Le Studio</button>
+                <button onclick="navigate('jeu')" class="text-left text-blood-red block px-3 py-2 rounded-md text-base font-medium">Le Jeu</button>
+                <button onclick="navigate('devlogs')" class="text-left text-gray-300 hover:text-crimson block px-3 py-2 rounded-md text-base font-medium">Devlogs</button>
+                <button onclick="navigate('contact')" class="text-left text-gray-300 hover:text-crimson block px-3 py-2 rounded-md text-base font-medium">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-20">
+
+        <!-- ==================== ACCUEIL ==================== -->
+        <section id="accueil" class="page-section min-h-screen flex flex-col justify-between">
+            <!-- Hero -->
+            <div class="relative flex-grow flex items-center justify-center text-center px-4 py-20 overflow-hidden">
+                <!-- Background ambient glow -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-crimson opacity-5 rounded-full blur-[150px] pointer-events-none"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/4 -translate-y-1/4 w-1/2 h-1/2 bg-blood-red opacity-5 rounded-full blur-[120px] pointer-events-none"></div>
+                
+                <div class="z-10 max-w-4xl mx-auto">
+                    <p class="text-crimson font-bold tracking-[0.3em] uppercase mb-4 text-sm md:text-base">Studio Indépendant - Aix-en-Provence</p>
+                    <h2 class="font-medieval text-4xl md:text-7xl text-white font-bold mb-6 leading-tight">
+                        Là où le <span class="text-gray-400">fer ancien</span> <br> rencontre <span class="text-blood-red glow-dark-red">l'abîme numérique</span>.
+                    </h2>
+                    <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light">
+                        Nous forgeons des expériences intenses mêlant dark fantasy brutale et technologies oubliées.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-6">
+                        <button onclick="navigate('jeu')" class="btn-sci-fi px-8 py-4 bg-blood-red/10 border border-blood-red text-blood-red hover:bg-blood-red hover:text-white rounded-sm shadow-[0_0_15px_rgba(139,0,0,0.3)] hover:shadow-[0_0_25px_rgba(139,0,0,0.6)]">
+                            <i class="fas fa-gamepad mr-2"></i> Découvrir le jeu
+                        </button>
+                        <button onclick="navigate('devlogs')" class="btn-sci-fi px-8 py-4 bg-crimson/10 border border-crimson text-crimson hover:bg-crimson hover:text-white rounded-sm shadow-[0_0_15px_rgba(220,20,60,0.3)] hover:shadow-[0_0_25px_rgba(220,20,60,0.6)]">
+                            <i class="fas fa-book-journal-whills mr-2"></i> Lire les Devlogs
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Feed "Live from the Forge" -->
+            <div class="bg-forge-dark/80 border-t border-forge-border py-16">
+                <div class="max-w-7xl mx-auto px-4">
+                    <h3 class="font-medieval text-2xl text-center text-white mb-10 glow-red">
+                        <i class="fas fa-fire text-blood-red mr-2"></i> En direct de la Forge
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- TikTok Placeholder -->
+                        <div class="box-glow-red bg-void rounded-lg p-1 group cursor-pointer relative overflow-hidden h-80 flex flex-col justify-end transition-transform hover:-translate-y-2">
+                            <div class="absolute inset-0 bg-[url('https://placehold.co/400x600/111/333?text=TikTok+Gameplay')] bg-cover bg-center opacity-50 group-hover:opacity-80 transition-opacity"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-void via-void/50 to-transparent"></div>
+                            <div class="relative p-6 z-10">
+                                <i class="fab fa-tiktok text-3xl text-white mb-2 group-hover:text-crimson transition-colors"></i>
+                                <h4 class="font-bold text-white text-lg">POV: Bug de collision épique ⚔️</h4>
+                                <p class="text-sm text-gray-400 mt-1">#gamedev #indiegame #bug</p>
+                            </div>
+                        </div>
+
+                        <!-- Instagram Placeholder -->
+                        <div class="box-glow-red bg-void rounded-lg p-1 group cursor-pointer relative overflow-hidden h-80 flex flex-col justify-end transition-transform hover:-translate-y-2">
+                            <div class="absolute inset-0 bg-[url('https://placehold.co/400x600/111/333?text=Insta+ConceptArt')] bg-cover bg-center opacity-50 group-hover:opacity-80 transition-opacity"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-void via-void/50 to-transparent"></div>
+                            <div class="relative p-6 z-10">
+                                <i class="fab fa-instagram text-3xl text-white mb-2 group-hover:text-blood-red transition-colors"></i>
+                                <h4 class="font-bold text-white text-lg">Concept Art : Armure Runique</h4>
+                                <p class="text-sm text-gray-400 mt-1">L'évolution de notre design principal.</p>
+                            </div>
+                        </div>
+
+                        <!-- YouTube Placeholder -->
+                        <div class="box-glow-dark-red bg-void rounded-lg p-1 group cursor-pointer relative overflow-hidden h-80 flex flex-col justify-end transition-transform hover:-translate-y-2">
+                            <div class="absolute inset-0 bg-[url('https://placehold.co/400x600/111/333?text=YT+Devlog')] bg-cover bg-center opacity-50 group-hover:opacity-80 transition-opacity"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-void via-void/50 to-transparent"></div>
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white/70 group-hover:text-blood-red text-5xl transition-colors">
+                                <i class="far fa-play-circle"></i>
+                            </div>
+                            <div class="relative p-6 z-10">
+                                <i class="fab fa-youtube text-3xl text-white mb-2 group-hover:text-blood-red transition-colors"></i>
+                                <h4 class="font-bold text-white text-lg">Devlog Vidéo #02</h4>
+                                <p class="text-sm text-gray-400 mt-1">Dans les coulisses du studio à Aix.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== LE STUDIO ==================== -->
+        <section id="studio" class="page-section hidden py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="font-medieval text-4xl md:text-5xl text-white font-bold mb-4 glow-red">Forgé dans l'ombre et la passion</h2>
+                    <div class="w-24 h-1 bg-blood-red mx-auto rounded mb-8 shadow-[0_0_10px_#8b0000]"></div>
+                    <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                        Né sous le soleil d'Aix-en-Provence, notre studio contraste avec son environnement. 
+                        Nous sommes une équipe de vétérans et de jeunes talents unis par une vision : créer des mondes où la brutalité médiévale se heurte à la froideur des ruines technologiques.
+                    </p>
+                </div>
+
+                <!-- Team Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
+                    <!-- Member 1 -->
+                    <div class="box-glow-red bg-forge-dark rounded flex flex-col items-center p-8 text-center relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-crimson/10 rounded-bl-full pointer-events-none"></div>
+                        <div class="w-32 h-32 rounded-full border-2 border-forge-border mb-6 overflow-hidden group-hover:border-crimson transition-colors">
+                            <img src="https://placehold.co/200x200/222/555?text=Art+Dir" alt="Art Director" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-medieval text-2xl text-white font-bold">Elena R.</h3>
+                        <p class="text-crimson font-bold tracking-wider uppercase text-sm mb-4">Directrice Artistique</p>
+                        <p class="text-gray-400 text-sm">Insuffle la noirceur et l'énergie sanglante dans chaque pixel. Carbure au café noir.</p>
+                    </div>
+                    
+                    <!-- Member 2 -->
+                    <div class="box-glow-dark-red bg-forge-dark rounded flex flex-col items-center p-8 text-center relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-blood-red/10 rounded-bl-full pointer-events-none"></div>
+                        <div class="w-32 h-32 rounded-full border-2 border-forge-border mb-6 overflow-hidden group-hover:border-blood-red transition-colors">
+                            <img src="https://placehold.co/200x200/222/555?text=Lead+Dev" alt="Lead Developer" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-medieval text-2xl text-white font-bold">Marc T.</h3>
+                        <p class="text-blood-red font-bold tracking-wider uppercase text-sm mb-4">Lead Développeur</p>
+                        <p class="text-gray-400 text-sm">Le forgeron du code. Il s'assure que les épées s'entrechoquent à 60 FPS constants.</p>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="box-glow-red bg-forge-dark rounded flex flex-col items-center p-8 text-center relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-crimson/10 rounded-bl-full pointer-events-none"></div>
+                        <div class="w-32 h-32 rounded-full border-2 border-forge-border mb-6 overflow-hidden group-hover:border-crimson transition-colors">
+                            <img src="https://placehold.co/200x200/222/555?text=Game+Des" alt="Game Designer" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-medieval text-2xl text-white font-bold">Lucas M.</h3>
+                        <p class="text-crimson font-bold tracking-wider uppercase text-sm mb-4">Lead Game Designer</p>
+                        <p class="text-gray-400 text-sm">Architecte des combats punitifs et des labyrinthes techno-catacombes.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-20 bg-void border border-forge-border p-8 rounded flex items-center justify-between flex-col md:flex-row gap-6">
+                    <div>
+                        <h3 class="font-medieval text-xl text-white mb-2">Envie de rejoindre la guilde ?</h3>
+                        <p class="text-gray-400">Nous cherchons toujours des talents pour forger l'avenir.</p>
+                    </div>
+                    <button onclick="navigate('contact')" class="btn-sci-fi px-6 py-3 border border-gray-500 hover:border-white text-white rounded">
+                        Voir les offres
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== LE JEU ==================== -->
+        <section id="jeu" class="page-section hidden py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                
+                <!-- Game Header -->
+                <div class="text-center mb-16 relative">
+                    <h1 class="font-medieval text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-2" style="filter: drop-shadow(0 0 10px rgba(220,20,60,0.3));">
+                        CHRONOS & STEEL
+                    </h1>
+                    <p class="text-2xl text-blood-red font-bold tracking-widest uppercase mt-4 glow-dark-red">
+                        "La lame s'émousse, le sang demeure."
+                    </p>
+                </div>
+
+                <!-- Trailer Placeholder -->
+                <div class="w-full max-w-4xl mx-auto aspect-video bg-black border-2 border-forge-border box-glow-red rounded-lg relative flex items-center justify-center cursor-pointer group mb-20 overflow-hidden">
+                    <img src="https://placehold.co/1280x720/111/444?text=Trailer+Cin%C3%A9matique" alt="Trailer Cover" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity">
+                    <div class="z-10 bg-void/80 border border-crimson text-crimson rounded-full w-24 h-24 flex items-center justify-center text-4xl group-hover:scale-110 group-hover:bg-crimson group-hover:text-void transition-all duration-300 shadow-[0_0_20px_rgba(220,20,60,0.5)]">
+                        <i class="fas fa-play ml-2"></i>
+                    </div>
+                </div>
+
+                <!-- Gameplay Pillars -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-void border border-forge-border p-8 rounded-lg hover:border-blood-red transition-colors group">
+                        <div class="w-16 h-16 rounded bg-blood-red/10 flex items-center justify-center text-blood-red text-3xl mb-6 group-hover:shadow-[0_0_15px_rgba(139,0,0,0.4)]">
+                            <i class="fas fa-khanda"></i>
+                        </div>
+                        <h3 class="font-medieval text-2xl text-white mb-3">Combat Viscéral</h3>
+                        <p class="text-gray-400">Des affrontements lourds et exigeants. Parez les lames d'acier rouillé et esquivez les décharges de plasma dans une danse mortelle.</p>
+                    </div>
+
+                    <div class="bg-void border border-forge-border p-8 rounded-lg hover:border-crimson transition-colors group">
+                        <div class="w-16 h-16 rounded bg-crimson/10 flex items-center justify-center text-crimson text-3xl mb-6 group-hover:shadow-[0_0_15px_rgba(220,20,60,0.4)]">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h3 class="font-medieval text-2xl text-white mb-3">Artisanat Runique</h3>
+                        <p class="text-gray-400">Récupérez des puces quantiques sur vos ennemis tombés et intégrez-les à vos armures forgées à la main pour débloquer des capacités dévastatrices.</p>
+                    </div>
+
+                    <div class="bg-void border border-forge-border p-8 rounded-lg hover:border-dark-crimson transition-colors group">
+                        <div class="w-16 h-16 rounded bg-dark-crimson/10 flex items-center justify-center text-crimson text-3xl mb-6 group-hover:shadow-[0_0_15px_rgba(92,0,0,0.4)]">
+                            <i class="fas fa-dungeon"></i>
+                        </div>
+                        <h3 class="font-medieval text-2xl text-white mb-3">Exploration Labyrinthique</h3>
+                        <p class="text-gray-400">Plongez dans les ruines de stations orbitales écrasées, transformées en donjons-catacombes par une humanité régressée.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== DEVLOGS ==================== -->
+        <section id="devlogs" class="page-section hidden py-20 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-16">
+                    <h2 class="font-medieval text-4xl text-white font-bold mb-4 glow-red flex items-center">
+                        <i class="fas fa-terminal mr-4 text-crimson"></i> Journal de Développement
+                    </h2>
+                    <p class="text-xl text-gray-400">Dans les entrailles du code et de la forge. Suivez notre progression.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Devlog 1 -->
+                    <article class="box-glow-red bg-forge-dark rounded flex flex-col md:flex-row overflow-hidden group">
+                        <div class="md:w-1/3 h-64 md:h-auto bg-[url('https://placehold.co/600x400/222/555?text=Combat+Animation')] bg-cover bg-center border-r border-forge-border"></div>
+                        <div class="p-8 md:w-2/3 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center text-sm text-blood-red font-bold mb-3">
+                                    <i class="far fa-calendar-alt mr-2"></i> 12 Novembre 2026
+                                    <span class="mx-3 text-gray-600">|</span>
+                                    <span class="text-gray-400"><i class="fas fa-tag mr-1"></i> Animation & Gameplay</span>
+                                </div>
+                                <h3 class="font-medieval text-2xl text-white font-bold mb-4 group-hover:text-crimson transition-colors">
+                                    Devlog #02 : Le système de combat lourd et viscéral
+                                </h3>
+                                <p class="text-gray-400 mb-6 line-clamp-3">
+                                    Transférer le poids d'une armure de plates médiévale tout en intégrant la nervosité d'un jeu d'action moderne n'a pas été une mince affaire. Dans ce devlog, notre animateur en chef vous montre comment nous avons simulé l'inertie des grandes épées couplées aux propulseurs d'exosquelettes.
+                                </p>
+                            </div>
+                            <button class="btn-sci-fi self-start px-6 py-2 border border-crimson text-crimson hover:bg-crimson hover:text-white rounded text-sm">
+                                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Devlog 2 -->
+                    <article class="box-glow-dark-red bg-forge-dark rounded flex flex-col md:flex-row overflow-hidden group">
+                        <div class="md:w-1/3 h-64 md:h-auto bg-[url('https://placehold.co/600x400/222/555?text=Environment+Art')] bg-cover bg-center border-r border-forge-border"></div>
+                        <div class="p-8 md:w-2/3 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center text-sm text-crimson font-bold mb-3">
+                                    <i class="far fa-calendar-alt mr-2"></i> 28 Octobre 2026
+                                    <span class="mx-3 text-gray-600">|</span>
+                                    <span class="text-gray-400"><i class="fas fa-tag mr-1"></i> Art & Worldbuilding</span>
+                                </div>
+                                <h3 class="font-medieval text-2xl text-white font-bold mb-4 group-hover:text-blood-red transition-colors">
+                                    Devlog #01 : Naissance d'Aix-Nova
+                                </h3>
+                                <p class="text-gray-400 mb-6 line-clamp-3">
+                                    De la première esquisse sur papier à l'intégration dans le moteur de jeu : plongée dans les choix artistiques qui définissent l'atmosphère sombre de notre cité-forteresse. Comment mélanger l'architecture gothique avec des câbles haute tension ?
+                                </p>
+                            </div>
+                            <button class="btn-sci-fi self-start px-6 py-2 border border-blood-red text-blood-red hover:bg-blood-red hover:text-white rounded text-sm">
+                                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT ==================== -->
+        <section id="contact" class="page-section hidden py-20 px-4">
+            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
+                
+                <!-- Form -->
+                <div class="lg:w-2/3 box-glow-red bg-forge-dark p-8 rounded-lg border border-forge-border">
+                    <h2 class="font-medieval text-3xl text-white mb-6">Contacter la Forge</h2>
+                    <form onsubmit="event.preventDefault();" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Nom / Pseudo</label>
+                                <input type="text" class="w-full bg-void border border-gray-700 rounded p-3 text-white focus:border-crimson focus:outline-none focus:ring-1 focus:ring-crimson transition-colors" placeholder="Votre nom">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                                <input type="email" class="w-full bg-void border border-gray-700 rounded p-3 text-white focus:border-crimson focus:outline-none focus:ring-1 focus:ring-crimson transition-colors" placeholder="email@exemple.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Sujet</label>
+                            <select class="w-full bg-void border border-gray-700 rounded p-3 text-white focus:border-crimson focus:outline-none focus:ring-1 focus:ring-crimson appearance-none">
+                                <option>Question Générale</option>
+                                <option>Support / Bug</option>
+                                <option>Recrutement</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                            <textarea rows="5" class="w-full bg-void border border-gray-700 rounded p-3 text-white focus:border-crimson focus:outline-none focus:ring-1 focus:ring-crimson transition-colors" placeholder="Transmettez votre message par onde quantique..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-sci-fi w-full px-6 py-4 bg-crimson/10 border border-crimson text-crimson hover:bg-crimson hover:text-white rounded text-lg font-bold">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Press / Info -->
+                <div class="lg:w-1/3 flex flex-col gap-8">
+                    <!-- Press Kit -->
+                    <div class="box-glow-dark-red bg-forge-dark p-8 rounded-lg border border-forge-border flex flex-col items-center text-center">
+                        <i class="fas fa-file-zipper text-4xl text-blood-red mb-4"></i>
+                        <h3 class="font-medieval text-2xl text-white mb-2">Presse & Créateurs</h3>
+                        <p class="text-gray-400 text-sm mb-6">Vous êtes journaliste ou streameur ? Récupérez nos visuels officiels, logos et informations clés.</p>
+                        <button class="btn-sci-fi w-full px-4 py-3 border border-blood-red text-blood-red hover:bg-blood-red hover:text-white rounded text-sm">
+                            <i class="fas fa-download mr-2"></i> Télécharger Kit Presse
+                        </button>
+                    </div>
+
+                    <!-- Localisation -->
+                    <div class="bg-void p-8 rounded-lg border border-forge-border text-center">
+                        <i class="fas fa-map-marker-alt text-3xl text-gray-500 mb-4"></i>
+                        <h3 class="font-medieval text-xl text-white mb-2">Localisation</h3>
+                        <p class="text-gray-400">
+                            Studio Forge & Code<br>
+                            13100 Aix-en-Provence<br>
+                            France
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-void border-t border-forge-border py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-medieval text-xl font-bold text-white">FORGE <span class="text-blood-red">&</span> CODE</span>
+                <p class="text-sm text-gray-500 mt-1">© 2026 Tous droits réservés.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-crimson transition-colors text-2xl hover:scale-110 transform duration-200"><i class="fab fa-discord"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-200"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="text-gray-400 hover:text-blood-red transition-colors text-2xl hover:scale-110 transform duration-200"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-red-600 transition-colors text-2xl hover:scale-110 transform duration-200"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for interactivity -->
+    <script>
+        // Navigation Logic
+        function navigate(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => {
+                sec.classList.add('hidden');
+                // Optional fade in effect could be added here
+            });
+            
+            // Show target section
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update active state on nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                // Reset styles
+                link.classList.remove('text-crimson', 'text-blood-red', 'glow-red', 'glow-dark-red');
+                link.classList.add('text-gray-300');
+                
+                // Add active style
+                if (link.dataset.target === sectionId) {
+                    link.classList.remove('text-gray-300');
+                    if (sectionId === 'jeu') {
+                        link.classList.add('text-blood-red', 'glow-dark-red');
+                    } else {
+                        link.classList.add('text-crimson', 'glow-red');
+                    }
+                }
+            });
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Initialize active state (Accueil)
+        navigate('accueil');
+    </script>
+</body>
+</html>

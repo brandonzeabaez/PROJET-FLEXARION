@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="g" cx=".5" cy=".35" r=".75">
+      <stop offset="0" stop-color="#3d0610"/>
+      <stop offset="1" stop-color="#0a0102"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#g)"/>
+  <!-- Heaume -->
+  <path d="M66 112 V78 Q66 38 100 38 Q134 38 134 78 V112 Q100 124 66 112Z" fill="#060000"/>
+  <path d="M74 80 H126 V88 H104 V110 H96 V88 H74Z" fill="#dc143c" opacity=".85"/>
+  <path d="M100 38 V24" stroke="#5c0000" stroke-width="6" stroke-linecap="round"/>
+  <path d="M28 200 Q30 128 100 128 Q170 128 172 200Z" fill="#050000"/>
+  <!-- D20 -->
+  <g fill="none" stroke="#ff3d5e" stroke-width="3" stroke-linejoin="round">
+    <path d="M100 146 L124 160 V186 L100 198 L76 186 V160Z"/>
+    <path d="M100 146 L88 176 H112Z M76 160 L88 176 M124 160 L112 176 M88 176 L100 198 L112 176"/>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#140205"/>
+      <stop offset="1" stop-color="#2c0409"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#bg)"/>
+  <!-- Mur de pierre -->
+  <g fill="none" stroke="#3a0a0f" stroke-width="2">
+    <path d="M240 0 V600"/>
+    <path d="M240 60 H400 M240 130 H400 M240 200 H400 M240 270 H400 M240 340 H400 M240 410 H400 M240 480 H400 M240 550 H400"/>
+    <path d="M320 0 V60 M280 60 V130 M360 60 V130 M320 130 V200 M280 200 V270 M360 200 V270 M320 270 V340 M280 340 V410 M360 340 V410 M320 410 V480 M280 480 V550 M360 480 V550"/>
+  </g>
+  <rect x="240" width="160" height="600" fill="#0d0103" opacity=".6"/>
+  <!-- Chevalier à moitié dans le mur (bug de collision) -->
+  <g fill="#050000">
+    <path d="M150 470 L160 330 140 300 145 250 170 225 190 215 210 225 235 250 240 300 220 330 230 470 205 470 195 380 180 470Z"/>
+    <path d="M172 218 Q190 180 208 218 L206 238 174 238Z"/>
+  </g>
+  <path d="M175 226 h28" stroke="#ff3d5e" stroke-width="3"/>
+  <path d="M232 300 L330 200" stroke="#dc143c" stroke-width="5" stroke-linecap="round"/>
+  <!-- Glitch -->
+  <g fill="#dc143c" opacity=".55">
+    <rect x="200" y="250" width="90" height="6"/>
+    <rect x="215" y="285" width="60" height="3"/>
+    <rect x="190" y="340" width="110" height="5"/>
+    <rect x="225" y="410" width="50" height="3"/>
+  </g>
+  <g fill="#00e5ff" opacity=".25">
+    <rect x="205" y="262" width="70" height="3"/>
+    <rect x="195" y="352" width="80" height="3"/>
+  </g>
+  <g fill="#ff3d5e" opacity=".8">
+    <path d="M60 120 l8 -14 8 14z"/><path d="M90 170 l6 -10 6 10z"/>
+  </g>
+</svg>
