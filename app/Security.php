@@ -20,24 +20,35 @@ final class Security
         if (($_SERVER['SERVER_PORT'] ?? null) === '443') {
             return true;
         }
-        return strtolower((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')) === 'https';
+        if (strtolower((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')) === 'https') {
+            return true;
+        }
+        if (strtolower((string) ($_SERVER['HTTP_X_FORWARDED_SSL'] ?? '')) === 'on') {
+            return true;
+        }
+        return false;
+    }
+
+    public static function isLocal(): bool
+    {
+        $host = strtolower((string) ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'] ?? ''));
+        $hostOnly = explode(':', $host)[0];
+        return in_array($hostOnly, ['localhost', '127.0.0.1', '[::1]'], true);
     }
 
     /**
-     * Redirige systématiquement toute requête HTTP vers HTTPS (301).
+     * Redirige toute requête HTTP vers HTTPS (301) en production (Alwaysdata, etc.).
+     * En local (localhost / 127.0.0.1), laisse fonctionner php -S sans bloquer.
      */
     public static function enforceHttps(): void
     {
-        if (PHP_SAPI === 'cli' || self::isHttps()) {
+        if (PHP_SAPI === 'cli' || self::isHttps() || self::isLocal()) {
             return;
         }
 
-        $host = (string) ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'] ?? 'localhost');
-        // En local (serveur de dev HTTP 8765 -> proxy HTTPS 8443)
-        if (str_ends_with($host, ':8765')) {
-            $host = substr($host, 0, -5) . ':8443';
-        } elseif (str_ends_with($host, ':80')) {
-            $host = substr($host, 0, -3);
+        $host = (string) ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'] ?? '');
+        if ($host === '') {
+            return;
         }
 
         $uri = (string) ($_SERVER['REQUEST_URI'] ?? '/');
@@ -85,7 +96,7 @@ final class Security
         }
 
         $nonce = self::getNonce();
-        $csp = implode('; ', [
+        $directives = [
             "default-src 'self'",
             "script-src 'self' 'nonce-{$nonce}'",
             "style-src 'self'",
@@ -97,8 +108,11 @@ final class Security
             "frame-ancestors 'none'",
             "base-uri 'self'",
             "object-src 'none'",
-            "upgrade-insecure-requests",
-        ]);
+        ];
+        if (self::isHttps()) {
+            $directives[] = 'upgrade-insecure-requests';
+        }
+        $csp = implode('; ', $directives);
 
         header('Content-Security-Policy: ' . $csp);
         if (self::isHttps()) {

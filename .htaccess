@@ -3,14 +3,16 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Forcer HTTPS uniquement
+  # Forcer HTTPS uniquement en production (hors localhost / 127.0.0.1)
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteCond %{HTTP:X-Forwarded-SSL} !on [NC]
+  RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:\d+)?$ [NC]
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # Bloquer l'accès direct aux dossiers internes et fichiers sensibles
   RewriteRule ^(app|views|\.git)/ - [F,L]
-  RewriteRule ^(\.htaccess|PROMPTS\.md|README\.md|maquette_forge_code\.html|router\.php)$ - [F,L]
+  RewriteRule ^(\.htaccess|\.gitignore|PROMPTS\.md|README\.md|maquette_forge_code\.html|router\.php)$ - [F,L]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -18,7 +20,6 @@ Options -Indexes
 </IfModule>
 
 <IfModule mod_headers.c>
-  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on'"
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "DENY"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
