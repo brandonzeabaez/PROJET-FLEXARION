@@ -9,28 +9,28 @@
   font-style: normal;
   font-weight: 400 900;
   font-display: swap;
-  src: url("../fonts/cinzel-latin.woff2") format("woff2");
+  src: url("/assets/fonts/cinzel-latin.woff2") format("woff2");
 }
 @font-face {
   font-family: "Rajdhani";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("../fonts/rajdhani-500-latin.woff2") format("woff2");
+  src: url("/assets/fonts/rajdhani-500-latin.woff2") format("woff2");
 }
 @font-face {
   font-family: "Rajdhani";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("../fonts/rajdhani-600-latin.woff2") format("woff2");
+  src: url("/assets/fonts/rajdhani-600-latin.woff2") format("woff2");
 }
 @font-face {
   font-family: "Rajdhani";
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("../fonts/rajdhani-700-latin.woff2") format("woff2");
+  src: url("/assets/fonts/rajdhani-700-latin.woff2") format("woff2");
 }
 
 /* ---------- Variables ---------- */
@@ -235,9 +235,8 @@ ul[role="list"] { list-style: none; padding: 0; }
 .logo-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  transform: scale(1.22);
   mix-blend-mode: lighten;
 }
 

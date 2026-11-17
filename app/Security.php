@@ -99,7 +99,7 @@ final class Security
         $directives = [
             "default-src 'self'",
             "script-src 'self' 'nonce-{$nonce}'",
-            "style-src 'self'",
+            "style-src 'self' 'nonce-{$nonce}'",
             "img-src 'self' data:",
             "font-src 'self'",
             "connect-src 'self'",

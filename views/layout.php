@@ -23,7 +23,10 @@ ob_start();
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="logo-brand" href="/" aria-label="Flexarion — accueil">
-        <img class="logo-img" src="/assets/img/logo-flexarion.jpg" alt="Flexarion" width="220" height="54" decoding="async">
+        <picture>
+          <source srcset="/assets/img/logo-flexarion.webp" type="image/webp">
+          <img class="logo-img" src="/assets/img/logo-flexarion-sm.jpg" alt="Flexarion" width="224" height="60" fetchpriority="high" decoding="async">
+        </picture>
       </a>
 
       <nav class="nav-desktop" aria-label="Navigation principale">
@@ -65,7 +68,10 @@ ob_start();
     <div class="container site-footer__inner">
       <div class="site-footer__brand">
         <a class="logo-brand logo-brand--sm" href="/" aria-label="Flexarion — accueil">
-          <img class="logo-img" src="/assets/img/logo-flexarion.jpg" alt="Flexarion" width="160" height="40" loading="lazy" decoding="async">
+          <picture>
+            <source srcset="/assets/img/logo-flexarion.webp" type="image/webp">
+            <img class="logo-img" src="/assets/img/logo-flexarion-sm.jpg" alt="Flexarion" width="168" height="45" loading="lazy" decoding="async">
+          </picture>
         </a>
         <small>© <?= date('Y') ?> Flexarion — Tous droits réservés.</small>
       </div>
@@ -113,8 +119,10 @@ if ($activeRoute === 'contact') {
   <meta property="og:description" content="<?= Security::e($pageDescription) ?>">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/rajdhani-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/rajdhani-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/rajdhani-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <style nonce="<?= Security::e($cspNonce) ?>"><?= file_get_contents(__DIR__ . '/../assets/css/style.css') ?></style>
   <script nonce="<?= Security::e($cspNonce) ?>">document.documentElement.classList.add("js")</script>
   <script src="/assets/js/main.js" defer></script>
 </head>
