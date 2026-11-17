@@ -120,6 +120,14 @@ ul[role="list"] { list-style: none; padding: 0; }
   overflow: hidden; clip: rect(0, 0, 0, 0);
   white-space: nowrap; border: 0;
 }
+.svg-sprite { display: none; }
+.btn-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+}
 .container {
   width: 100%;
   max-width: var(--container);

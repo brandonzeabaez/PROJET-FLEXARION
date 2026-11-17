@@ -43,5 +43,5 @@ function render_svg_sprite(array $names): string
             $out .= $symbols[$name];
         }
     }
-    return '<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">' . $out . '</svg>';
+    return '<svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" aria-hidden="true">' . $out . '</svg>';
 }

@@ -128,10 +128,8 @@
     document.querySelectorAll(".btn").forEach(function (btn) {
       btn.addEventListener("mouseenter", function () {
         var sheen = document.createElement("span");
+        sheen.className = "btn-sheen";
         sheen.setAttribute("aria-hidden", "true");
-        sheen.style.cssText =
-          "position:absolute;inset:0;pointer-events:none;z-index:-1;" +
-          "background:linear-gradient(90deg,transparent,rgba(255,255,255,0.22),transparent);";
         btn.appendChild(sheen);
         sheen.animate(
           [{ transform: "translateX(-100%)" }, { transform: "translateX(100%)" }],
