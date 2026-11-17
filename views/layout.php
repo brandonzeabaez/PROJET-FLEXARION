@@ -111,12 +111,47 @@ if ($activeRoute === 'contact') {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= Security::e($pageTitle) ?></title>
   <meta name="description" content="<?= Security::e($pageDescription) ?>">
+  <meta name="robots" content="<?= Security::e($robotsMeta) ?>">
+  <link rel="canonical" href="<?= Security::e($canonicalUrl) ?>">
   <meta name="theme-color" content="#030000">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Flexarion">
   <meta property="og:title" content="<?= Security::e($pageTitle) ?>">
   <meta property="og:description" content="<?= Security::e($pageDescription) ?>">
+  <meta property="og:url" content="<?= Security::e($canonicalUrl) ?>">
+  <meta property="og:image" content="<?= Security::e($origin) ?>/assets/img/logo-flexarion.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<?= Security::e($pageTitle) ?>">
+  <meta name="twitter:description" content="<?= Security::e($pageDescription) ?>">
+  <meta name="twitter:image" content="<?= Security::e($origin) ?>/assets/img/logo-flexarion.jpg">
+<?php
+$schema = [
+    '@context' => 'https://schema.org',
+    '@type' => 'Organization',
+    'name' => 'Flexarion',
+    'url' => $origin . '/',
+    'logo' => $origin . '/assets/img/logo-flexarion.webp',
+    'address' => [
+        '@type' => 'PostalAddress',
+        'addressLocality' => 'Aix-en-Provence',
+        'postalCode' => '13100',
+        'addressCountry' => 'FR',
+    ],
+];
+if ($activeRoute === 'jeu') {
+    $schema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'VideoGame',
+        'name' => 'Chronos & Steel',
+        'author' => ['@type' => 'Organization', 'name' => 'Flexarion'],
+        'genre' => ['Action RPG', 'Dark Fantasy', 'Sci-Fi'],
+        'inLanguage' => 'fr',
+        'url' => $origin . '/jeu',
+    ];
+}
+?>
+  <script type="application/ld+json" nonce="<?= Security::e($cspNonce) ?>"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?></script>
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/rajdhani-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/rajdhani-600-latin.woff2" as="font" type="font/woff2" crossorigin>

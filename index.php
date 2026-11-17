@@ -13,6 +13,13 @@ Security::enforceHttps();
 Security::startSession();
 Security::sendHeaders();
 
+function current_origin(): string
+{
+    $scheme = Security::isHttps() ? 'https' : 'http';
+    $host = (string) ($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'] ?? 'localhost');
+    return $scheme . '://' . $host;
+}
+
 /**
  * Rend une vue de page à l'intérieur du gabarit principal.
  */
@@ -23,6 +30,9 @@ function render_page(string $view, array $data = []): void
     $activeRoute = $data['route'] ?? '';
     $cspNonce = Security::getNonce();
     $csrfToken = Security::csrfToken();
+    $origin = current_origin();
+    $canonicalUrl = $origin . ($data['canonicalPath'] ?? '/');
+    $robotsMeta = $data['robots'] ?? 'index, follow';
 
     extract($data, EXTR_SKIP);
 
@@ -72,6 +82,7 @@ $router = new Router();
 $router->get('/', static function (): void {
     render_page('accueil', [
         'route' => 'accueil',
+        'canonicalPath' => '/',
         'title' => 'Flexarion | Studio de jeux vidéo indépendant à Aix-en-Provence',
         'description' => "Flexarion, studio indépendant d'Aix-en-Provence, forge des jeux vidéo mêlant dark fantasy brutale et technologies oubliées.",
     ]);
@@ -80,6 +91,7 @@ $router->get('/', static function (): void {
 $router->get('/studio', static function (): void {
     render_page('studio', [
         'route' => 'studio',
+        'canonicalPath' => '/studio',
         'title' => 'Le Studio | Flexarion',
         'description' => "Découvrez l'équipe de Flexarion : vétérans et jeunes talents réunis à Aix-en-Provence pour créer des mondes dark fantasy sci-fi.",
     ]);
@@ -88,6 +100,7 @@ $router->get('/studio', static function (): void {
 $router->get('/jeu', static function (): void {
     render_page('jeu', [
         'route' => 'jeu',
+        'canonicalPath' => '/jeu',
         'title' => 'Chronos & Steel | Le jeu de Flexarion',
         'description' => 'Chronos & Steel : combat viscéral, artisanat runique et exploration labyrinthique dans un univers dark médiéval sci-fi.',
     ]);
@@ -96,6 +109,7 @@ $router->get('/jeu', static function (): void {
 $router->get('/devlogs', static function (): void {
     render_page('devlogs', [
         'route' => 'devlogs',
+        'canonicalPath' => '/devlogs',
         'title' => 'Devlogs | Journal de développement | Flexarion',
         'description' => 'Suivez le développement de Chronos & Steel par Flexarion : coulisses, système de combat, direction artistique et worldbuilding.',
     ]);
@@ -110,10 +124,44 @@ $router->get('/contact', static function (): void {
 
     render_page('contact', [
         'route' => 'contact',
+        'canonicalPath' => '/contact',
         'title' => 'Contact | Flexarion',
         'description' => 'Contactez le studio Flexarion : questions, support, recrutement, presse et créateurs de contenu.',
         'old' => ['nom' => '', 'email' => '', 'sujet' => $sujet, 'message' => ''],
     ]);
+});
+
+$router->get('/robots.txt', static function (): void {
+    header('Content-Type: text/plain; charset=utf-8');
+    $origin = current_origin();
+    echo "User-agent: *\n";
+    echo "Allow: /\n";
+    echo "Disallow: /app/\n";
+    echo "Disallow: /views/\n";
+    echo "Sitemap: {$origin}/sitemap.xml\n";
+});
+
+$router->get('/sitemap.xml', static function (): void {
+    header('Content-Type: application/xml; charset=utf-8');
+    $origin = current_origin();
+    $urls = [
+        ['loc' => '/',        'priority' => '1.0', 'changefreq' => 'weekly'],
+        ['loc' => '/jeu',     'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => '/devlogs', 'priority' => '0.8', 'changefreq' => 'weekly'],
+        ['loc' => '/studio',  'priority' => '0.7', 'changefreq' => 'monthly'],
+        ['loc' => '/contact', 'priority' => '0.6', 'changefreq' => 'monthly'],
+    ];
+    echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+    foreach ($urls as $u) {
+        $loc = Security::e($origin . $u['loc']);
+        echo "  <url>\n";
+        echo "    <loc>{$loc}</loc>\n";
+        echo "    <changefreq>{$u['changefreq']}</changefreq>\n";
+        echo "    <priority>{$u['priority']}</priority>\n";
+        echo "  </url>\n";
+    }
+    echo "</urlset>\n";
 });
 
 $router->post('/contact', static function (): void {
@@ -206,6 +254,8 @@ $router->setNotFound(static function (): void {
     $rawPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
     render_page('404', [
         'route' => '404',
+        'robots' => 'noindex, nofollow',
+        'canonicalPath' => '/404',
         'title' => 'Erreur 404 — Page introuvable | Flexarion',
         'description' => 'La page demandée est introuvable sur le site de Flexarion.',
         'requestedPath' => is_string($rawPath) ? $rawPath : '/',
