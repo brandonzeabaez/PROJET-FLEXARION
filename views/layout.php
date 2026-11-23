@@ -112,6 +112,7 @@ if ($activeRoute === 'contact') {
   <title><?= Security::e($pageTitle) ?></title>
   <meta name="description" content="<?= Security::e($pageDescription) ?>">
   <meta name="robots" content="<?= Security::e($robotsMeta) ?>">
+  <meta name="google-site-verification" content="7XLqY0Jd9aXP0d6MUeKYHNRb3oMgO7QJDVEXa4S5FDY">
   <link rel="canonical" href="<?= Security::e($canonicalUrl) ?>">
   <meta name="theme-color" content="#030000">
   <meta property="og:type" content="website">
