@@ -44,7 +44,6 @@ $statusIcon = $formSuccess ? '#i-circle-check' : '#i-circle-alert';
                   <option value="general"<?= $old['sujet'] === 'general' ? ' selected' : '' ?>>Question générale</option>
                   <option value="support"<?= $old['sujet'] === 'support' ? ' selected' : '' ?>>Support / Bug</option>
                   <option value="recrutement"<?= $old['sujet'] === 'recrutement' ? ' selected' : '' ?>>Recrutement</option>
-                  <option value="presse"<?= $old['sujet'] === 'presse' ? ' selected' : '' ?>>Presse &amp; créateurs</option>
                 </select>
                 <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
               </div>

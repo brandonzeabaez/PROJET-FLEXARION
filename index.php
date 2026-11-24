@@ -50,7 +50,7 @@ function render_page(string $view, array $data = []): void
  */
 function validate_contact(array $input): array
 {
-    $allowedSujets = ['general', 'support', 'recrutement', 'presse'];
+    $allowedSujets = ['general', 'support', 'recrutement'];
     $sujet = (string) ($input['sujet'] ?? 'general');
     if (!in_array($sujet, $allowedSujets, true)) {
         $sujet = 'general';
@@ -116,7 +116,7 @@ $router->get('/devlogs', static function (): void {
 });
 
 $router->get('/contact', static function (): void {
-    $allowedSujets = ['general', 'support', 'recrutement', 'presse'];
+    $allowedSujets = ['general', 'support', 'recrutement'];
     $sujet = (string) ($_GET['sujet'] ?? 'general');
     if (!in_array($sujet, $allowedSujets, true)) {
         $sujet = 'general';
