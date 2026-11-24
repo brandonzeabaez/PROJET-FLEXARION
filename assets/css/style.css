@@ -806,10 +806,11 @@ main:focus { outline: none; }
 }
 .devlog__media {
   position: relative;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16 / 9;
   border-bottom: 1px solid var(--forge-border);
   overflow: hidden;
 }
+.devlog__media picture { display: block; width: 100%; height: 100%; }
 .devlog__media img { width: 100%; height: 100%; object-fit: cover; }
 .devlog:hover .devlog__media img { transform: scale(1.04); }
 .devlog__body { display: flex; flex-direction: column; padding: 1.5rem; }
@@ -824,6 +825,19 @@ main:focus { outline: none; }
   }
   .devlog__media img { position: absolute; inset: 0; }
   .devlog__body { padding: 2rem; }
+
+  /* Quand l'article est déplié : l'image passe en bannière panoramique au-dessus */
+  .devlog:has(details[open]) { flex-direction: column; }
+  .devlog:has(details[open]) .devlog__media {
+    flex: none;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    max-height: 28rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--forge-border);
+  }
+  .devlog:has(details[open]) .devlog__media img { position: static; }
 }
 .devlog__meta {
   display: flex;
