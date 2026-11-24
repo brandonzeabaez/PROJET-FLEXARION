@@ -877,6 +877,7 @@ main:focus { outline: none; }
   list-style: none;
   width: fit-content;
 }
+.devlog details[open] summary { margin-inline: auto; }
 .devlog summary::-webkit-details-marker { display: none; }
 .devlog summary .icon { }
 .devlog details[open] summary .icon { transform: rotate(90deg); }
