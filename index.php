@@ -115,6 +115,15 @@ $router->get('/devlogs', static function (): void {
     ]);
 });
 
+$router->get('/annonces', static function (): void {
+    render_page('annonces', [
+        'route' => 'annonces',
+        'canonicalPath' => '/annonces',
+        'title' => 'Annonces & Événements | Paris Games Week — Flexarion',
+        'description' => 'Flexarion sera présent à la Paris Games Week (PGW) à Paris en octobre/novembre : venez essayer Mystical Knight sur notre stand et découvrez notre flyer officiel.',
+    ]);
+});
+
 $router->get('/contact', static function (): void {
     $allowedSujets = ['general', 'support', 'recrutement'];
     $sujet = (string) ($_GET['sujet'] ?? 'general');
@@ -145,11 +154,12 @@ $router->get('/sitemap.xml', static function (): void {
     header('Content-Type: application/xml; charset=utf-8');
     $origin = current_origin();
     $urls = [
-        ['loc' => '/',        'priority' => '1.0', 'changefreq' => 'weekly'],
-        ['loc' => '/jeu',     'priority' => '0.9', 'changefreq' => 'weekly'],
-        ['loc' => '/devlogs', 'priority' => '0.8', 'changefreq' => 'weekly'],
-        ['loc' => '/studio',  'priority' => '0.7', 'changefreq' => 'monthly'],
-        ['loc' => '/contact', 'priority' => '0.6', 'changefreq' => 'monthly'],
+        ['loc' => '/',         'priority' => '1.0', 'changefreq' => 'weekly'],
+        ['loc' => '/jeu',      'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => '/annonces', 'priority' => '0.8', 'changefreq' => 'weekly'],
+        ['loc' => '/devlogs',  'priority' => '0.8', 'changefreq' => 'weekly'],
+        ['loc' => '/studio',   'priority' => '0.7', 'changefreq' => 'monthly'],
+        ['loc' => '/contact',  'priority' => '0.6', 'changefreq' => 'monthly'],
     ];
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
     echo "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
@@ -239,6 +249,7 @@ $legacyMap = [
     '/index.html' => '/',
     '/studio.html' => '/studio',
     '/jeu.html' => '/jeu',
+    '/annonces.html' => '/annonces',
     '/devlogs.html' => '/devlogs',
     '/contact.html' => '/contact',
 ];

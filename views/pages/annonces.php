@@ -1,0 +1,75 @@
+    <section class="section" aria-labelledby="annonces-title">
+      <div class="container container--sm">
+        <header class="page-intro">
+          <h1 id="annonces-title" class="page-title glow-red">
+            <svg class="icon" aria-hidden="true"><use href="#i-flame"/></svg> Annonces &amp; Événements
+          </h1>
+          <p class="lead">Retrouvez toute l'actualité officielle du studio Flexarion : salons, conventions et rendez-vous avec la communauté.</p>
+        </header>
+
+        <article class="announcement box-glow-red" aria-labelledby="annonce-pgw">
+          <div class="announcement__grid">
+            <div class="announcement__content">
+              <div class="devlog__meta">
+                <span class="text-blood"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Octobre / Novembre</span>
+                <span class="sep" aria-hidden="true">|</span>
+                <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Paris</span>
+              </div>
+
+              <h2 id="annonce-pgw" class="announcement__title">
+                Paris Games Week (PGW) – Paris (Octobre / Novembre) : le plus grand salon grand public du jeu vidéo en France.
+              </h2>
+
+              <p class="announcement__lead">
+                Le studio <strong>Flexarion</strong> sera présent à la <strong>Paris Games Week</strong> pour vous faire découvrir notre nouveau jeu : <strong>Mystical Knight</strong> !
+              </p>
+
+              <p>
+                Venez nous rencontrer sur notre stand, tester le jeu en avant-première et plonger dans un univers <strong>dark fantasy</strong> jouable en multijoueur de <strong>1 à 4 joueurs</strong>.
+              </p>
+
+              <ul class="announcement__highlights">
+                <li><strong>Démo jouable sur place :</strong> venez essayer <em>Mystical Knight</em> directement sur notre stand et affrontez les ténèbres en solo ou en coopération.</li>
+                <li><strong>Rencontre avec l'équipe :</strong> échangez avec les créateurs du studio Flexarion sur le développement, le lore et les mécaniques du jeu.</li>
+                <li><strong>Flyer officiel distribué sur le stand :</strong> repartez avec notre flyer collector contenant le QR code d'accès direct au site pour rejoindre l'aventure.</li>
+              </ul>
+
+              <div class="announcement__actions">
+                <a class="btn btn--blood" href="/jeu">
+                  <svg class="icon" aria-hidden="true"><use href="#i-gamepad-2"/></svg> Découvrir Mystical Knight
+                </a>
+                <a class="btn btn--ghost" href="/assets/img/flyer-pgw-mystical-knight.jpg" download="flyer-pgw-mystical-knight.jpg">
+                  <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Télécharger le flyer
+                </a>
+              </div>
+            </div>
+
+            <figure class="announcement__flyer">
+              <a href="/assets/img/flyer-pgw-mystical-knight.jpg" target="_blank" rel="noopener noreferrer" aria-label="Agrandir le flyer officiel de Mystical Knight pour la Paris Games Week (nouvel onglet)">
+                <img
+                  src="/assets/img/flyer-pgw-mystical-knight.jpg"
+                  alt="Flyer officiel de Mystical Knight par Flexarion Studio pour la convention Paris Games Week : jeu multijoueur de 1 à 4 joueurs dans un monde dark fantasy, avec QR code vers le site"
+                  width="427"
+                  height="574"
+                  fetchpriority="high"
+                  decoding="async"
+                >
+              </a>
+              <figcaption class="announcement__caption">
+                Flyer officiel qui sera distribué sur notre stand à la Paris Games Week.
+              </figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <aside class="cta-band reveal" aria-labelledby="pgw-contact-title">
+          <div>
+            <h2 id="pgw-contact-title">Presse, créateurs de contenu ou partenaires à la PGW ?</h2>
+            <p>Contactez-nous à l'avance pour organiser une rencontre ou une session de test sur notre stand.</p>
+          </div>
+          <a class="btn btn--crimson" href="/contact?sujet=general">
+            Contacter le studio <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+        </aside>
+      </div>
+    </section>

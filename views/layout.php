@@ -9,11 +9,12 @@ use App\Security;
  * Variables attendues : $pageTitle, $pageDescription, $activeRoute, $cspNonce, $content.
  */
 $navItems = [
-    ['key' => 'accueil', 'href' => '/',        'label' => 'Accueil',   'class' => ''],
-    ['key' => 'studio',  'href' => '/studio',  'label' => 'Le Studio', 'class' => ''],
-    ['key' => 'jeu',     'href' => '/jeu',     'label' => 'Le Jeu',    'class' => 'nav-link--blood'],
-    ['key' => 'devlogs', 'href' => '/devlogs', 'label' => 'Devlogs',   'class' => ''],
-    ['key' => 'contact', 'href' => '/contact', 'label' => 'Contact',   'class' => ''],
+    ['key' => 'accueil',  'href' => '/',         'label' => 'Accueil',   'class' => ''],
+    ['key' => 'studio',   'href' => '/studio',   'label' => 'Le Studio', 'class' => ''],
+    ['key' => 'jeu',      'href' => '/jeu',      'label' => 'Le Jeu',    'class' => 'nav-link--blood'],
+    ['key' => 'annonces', 'href' => '/annonces', 'label' => 'Annonces',  'class' => ''],
+    ['key' => 'devlogs',  'href' => '/devlogs',  'label' => 'Devlogs',   'class' => ''],
+    ['key' => 'contact',  'href' => '/contact',  'label' => 'Contact',   'class' => ''],
 ];
 
 ob_start();
