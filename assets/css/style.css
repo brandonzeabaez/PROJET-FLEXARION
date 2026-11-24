@@ -607,6 +607,7 @@ main:focus { outline: none; }
 }
 .team-card:hover .team-card__avatar { border-color: var(--crimson); }
 .team-card--blood:hover .team-card__avatar { border-color: #b01515; }
+.team-card__avatar picture { display: block; width: 100%; height: 100%; }
 .team-card__avatar img { width: 100%; height: 100%; object-fit: cover; }
 .team-card__name { font-family: var(--font-medieval); font-size: 1.5rem; font-weight: 700; }
 .team-card__role {
@@ -962,6 +963,9 @@ main:focus { outline: none; }
   border-color: var(--crimson);
   box-shadow: 0 0 24px rgba(220, 20, 60, 0.35);
 }
+.announcement__flyer picture {
+  display: block;
+}
 .announcement__flyer img {
   display: block;
   width: 100%;
@@ -1020,6 +1024,11 @@ main:focus { outline: none; }
   transform: translateY(-0.25rem);
   border-color: var(--crimson);
   box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+}
+.merch-card picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .merch-card img {
   display: block;

@@ -39,22 +39,25 @@
                 <a class="btn btn--blood" href="/jeu">
                   <svg class="icon" aria-hidden="true"><use href="#i-gamepad-2"/></svg> Découvrir Mystical Knight
                 </a>
-                <a class="btn btn--ghost" href="/assets/img/flyer-pgw-mystical-knight.jpg" download="flyer-pgw-mystical-knight.jpg">
+                <a class="btn btn--ghost" href="/assets/img/flyer-pgw-mystical-knight.webp" download="flyer-pgw-mystical-knight.webp">
                   <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Télécharger le flyer
                 </a>
               </div>
             </div>
 
             <figure class="announcement__flyer">
-              <a href="/assets/img/flyer-pgw-mystical-knight.jpg" target="_blank" rel="noopener noreferrer" aria-label="Agrandir le flyer officiel de Mystical Knight pour la Paris Games Week (nouvel onglet)">
-                <img
-                  src="/assets/img/flyer-pgw-mystical-knight.jpg"
-                  alt="Flyer officiel de Mystical Knight par Flexarion Studio pour la convention Paris Games Week : jeu multijoueur de 1 à 4 joueurs dans un monde dark fantasy, avec QR code vers le site"
-                  width="427"
-                  height="574"
-                  fetchpriority="high"
-                  decoding="async"
-                >
+              <a href="/assets/img/flyer-pgw-mystical-knight.webp" target="_blank" rel="noopener noreferrer" aria-label="Agrandir le flyer officiel de Mystical Knight pour la Paris Games Week (nouvel onglet)">
+                <picture>
+                  <source srcset="/assets/img/flyer-pgw-mystical-knight.webp" type="image/webp">
+                  <img
+                    src="/assets/img/flyer-pgw-mystical-knight.jpg"
+                    alt="Flyer officiel de Mystical Knight par Flexarion Studio pour la convention Paris Games Week : jeu multijoueur de 1 à 4 joueurs dans un monde dark fantasy, avec QR code vers le site"
+                    width="427"
+                    height="574"
+                    fetchpriority="high"
+                    decoding="async"
+                  >
+                </picture>
               </a>
               <figcaption class="announcement__caption">
                 Flyer officiel qui sera distribué sur notre stand à la Paris Games Week.
@@ -71,28 +74,34 @@
             </p>
             <div class="announcement__merch-grid">
               <figure class="merch-card">
-                <a href="/assets/img/merch-tshirt-flexarion.jpg" target="_blank" rel="noopener noreferrer" aria-label="Voir le visuel du t-shirt Flexarion en grand (nouvel onglet)">
-                  <img
-                    src="/assets/img/merch-tshirt-flexarion.jpg"
-                    alt="Aperçu du t-shirt gris foncé avec le logo métallique et ornemental Flexarion"
-                    width="765"
-                    height="1024"
-                    loading="lazy"
-                    decoding="async"
-                  >
+                <a href="/assets/img/merch-tshirt-flexarion.webp" target="_blank" rel="noopener noreferrer" aria-label="Voir le visuel du t-shirt Flexarion en grand (nouvel onglet)">
+                  <picture>
+                    <source srcset="/assets/img/merch-tshirt-flexarion.webp" type="image/webp">
+                    <img
+                      src="/assets/img/merch-tshirt-flexarion.jpg"
+                      alt="Aperçu du t-shirt gris foncé avec le logo métallique et ornemental Flexarion"
+                      width="765"
+                      height="1024"
+                      loading="lazy"
+                      decoding="async"
+                    >
+                  </picture>
                 </a>
                 <figcaption>T-shirt Flexarion</figcaption>
               </figure>
               <figure class="merch-card">
-                <a href="/assets/img/merch-casquette-flexarion.jpg" target="_blank" rel="noopener noreferrer" aria-label="Voir le visuel de la casquette Flexarion en grand (nouvel onglet)">
-                  <img
-                    src="/assets/img/merch-casquette-flexarion.jpg"
-                    alt="Aperçu de la casquette gris anthracite délavée avec écusson brodé Flexarion"
-                    width="1024"
-                    height="1024"
-                    loading="lazy"
-                    decoding="async"
-                  >
+                <a href="/assets/img/merch-casquette-flexarion.webp" target="_blank" rel="noopener noreferrer" aria-label="Voir le visuel de la casquette Flexarion en grand (nouvel onglet)">
+                  <picture>
+                    <source srcset="/assets/img/merch-casquette-flexarion.webp" type="image/webp">
+                    <img
+                      src="/assets/img/merch-casquette-flexarion.jpg"
+                      alt="Aperçu de la casquette gris anthracite délavée avec écusson brodé Flexarion"
+                      width="1024"
+                      height="1024"
+                      loading="lazy"
+                      decoding="async"
+                    >
+                  </picture>
                 </a>
                 <figcaption>Casquette Flexarion</figcaption>
               </figure>
