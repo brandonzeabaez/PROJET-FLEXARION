@@ -84,9 +84,9 @@ ob_start();
         </ul>
       </nav>
       <ul class="socials">
-        <li><a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a></li>
-        <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-youtube"/></svg></a></li>
-        <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+        <li><a href="https://www.tiktok.com/@flexarion__studio" target="_blank" rel="noopener noreferrer" aria-label="TikTok (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a></li>
+        <li><a href="https://www.youtube.com/@MysticalKnight-l9w" target="_blank" rel="noopener noreferrer" aria-label="YouTube (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-youtube"/></svg></a></li>
+        <li><a href="https://www.instagram.com/flexarion_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
       </ul>
     </div>
   </footer>
@@ -133,6 +133,11 @@ $schema = [
     'name' => 'Flexarion',
     'url' => $origin . '/',
     'logo' => $origin . '/assets/img/logo-flexarion.webp',
+    'sameAs' => [
+        'https://www.tiktok.com/@flexarion__studio',
+        'https://www.youtube.com/@MysticalKnight-l9w',
+        'https://www.instagram.com/flexarion_studio/',
+    ],
     'address' => [
         '@type' => 'PostalAddress',
         'addressLocality' => 'Aix-en-Provence',

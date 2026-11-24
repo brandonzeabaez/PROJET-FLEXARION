@@ -26,7 +26,7 @@
         </h2>
         <ul class="grid grid--3" role="list">
           <li class="reveal">
-            <a class="social-card box-glow-red" href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+            <a class="social-card box-glow-red" href="https://www.tiktok.com/@flexarion__studio" target="_blank" rel="noopener noreferrer">
               <img class="social-card__img" src="/assets/img/social-tiktok.svg" alt="" width="400" height="600" loading="lazy" decoding="async">
               <div class="social-card__body">
                 <svg class="icon social-card__brand" aria-hidden="true"><use href="#i-tiktok"/></svg>
@@ -37,7 +37,7 @@
             </a>
           </li>
           <li class="reveal">
-            <a class="social-card box-glow-red social-card--blood" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <a class="social-card box-glow-red social-card--blood" href="https://www.instagram.com/flexarion_studio/" target="_blank" rel="noopener noreferrer">
               <img class="social-card__img" src="/assets/img/social-instagram.svg" alt="" width="400" height="600" loading="lazy" decoding="async">
               <div class="social-card__body">
                 <svg class="icon social-card__brand" aria-hidden="true"><use href="#i-instagram"/></svg>
@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="reveal">
-            <a class="social-card box-glow-dark-red social-card--blood" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+            <a class="social-card box-glow-dark-red social-card--blood" href="https://www.youtube.com/@MysticalKnight-l9w" target="_blank" rel="noopener noreferrer">
               <img class="social-card__img" src="/assets/img/social-youtube.svg" alt="" width="400" height="600" loading="lazy" decoding="async">
               <svg class="icon social-card__play" aria-hidden="true"><use href="#i-play"/></svg>
               <div class="social-card__body">
