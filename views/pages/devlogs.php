@@ -4,7 +4,7 @@
           <h1 id="devlogs-title" class="page-title glow-red">
             <svg class="icon" aria-hidden="true"><use href="#i-terminal"/></svg> Journal de Développement
           </h1>
-          <p class="lead">Dans les entrailles du code et de la forge. Suivez notre progression sur Mystical Knight.</p>
+          <p class="lead">Dans les entrailles de notre studio indépendant : suivez la création de Mystical Knight, notre jeu RPG dark fantasy.</p>
         </header>
 
         <div class="devlog-list">
@@ -69,7 +69,7 @@
               </div>
               <h2 id="devlog-1" class="devlog__title">Devlog #01 : Genèse de Mystical Knight</h2>
               <p class="devlog__excerpt">
-                De la première esquisse sur papier à l'intégration dans le moteur de jeu : plongée dans les choix artistiques qui définissent l'atmosphère sombre de notre univers. Comment mélanger l'architecture gothique avec la science-fiction et la brume ?
+                De la première esquisse sur papier à l'intégration dans le moteur de jeu : plongée dans les choix artistiques qui définissent notre jeu RPG dark fantasy, entre chevalier, magie ancienne, monstres et brume étrange.
               </p>
               <details>
                 <summary class="btn btn--blood btn--sm">
@@ -79,9 +79,9 @@
                 <div class="devlog__full">
                   <h3 class="sr-only">Suite de l'article</h3>
                   <h4>Des croquis aux blocs 3D</h4>
-                  <p>Mystical Knight est né d'une question simple : à quoi ressemblerait un monde de chevaliers et de magie bâti sur les ruines d'une civilisation technologique ? Les premiers croquis mélangeaient arcs-boutants et reliques sci-fi.</p>
-                  <h4>Une palette de sang et de rouille</h4>
-                  <p>Nous avons limité la palette à des noirs profonds et des rouges saturés. Les seules sources de lumière proviennent des câbles et des vitraux, ce qui guide naturellement le joueur dans les ruelles.</p>
+                  <p>Dans notre studio indépendant, Mystical Knight est né d'une question simple : à quoi ressemblerait un RPG dark fantasy où un chevalier affronte des monstres au cœur d'une brume étrange, sur les ruines d'un monde ancien et technologique ? Les premiers croquis mélangeaient arcs-boutants, magie oubliée et reliques sci-fi.</p>
+                  <h4>Une palette de sang, de brume et de magie</h4>
+                  <p>Nous avons limité la palette à des noirs profonds et des rouges saturés. Les seules lueurs proviennent d'un halo magique ancien, des câbles et des vitraux, ce qui guide naturellement le joueur face aux dangers qui rôdent.</p>
                 </div>
               </details>
             </div>

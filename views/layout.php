@@ -110,7 +110,7 @@ if ($activeRoute === 'contact') {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= Security::e($pageTitle) ?></title>
   <meta name="description" content="<?= Security::e($pageDescription) ?>">
-  <meta name="keywords" content="Indépendant, Studio, Dark fantasy, Chevalier, Monstres, Magie, RPG, Brume, Jeux">
+  <meta name="keywords" content="Indépendant, Studio, Dark fantasy, Chevalier, Monstres, Magie, RPG, Brume, Jeux, Ancien, Magique, Étrange">
   <meta name="robots" content="<?= Security::e($robotsMeta) ?>">
   <meta name="google-site-verification" content="7XLqY0Jd9aXP0d6MUeKYHNRb3oMgO7QJDVEXa4S5FDY">
   <link rel="canonical" href="<?= Security::e($canonicalUrl) ?>">
@@ -158,7 +158,7 @@ if ($activeRoute === 'jeu') {
         'genre' => ['Souls-like', 'RPG', 'Dark fantasy', 'Science-fiction'],
         'playMode' => ['SinglePlayer', 'CoOp', 'MultiPlayer'],
         'isAccessibleForFree' => true,
-        'keywords' => 'Indépendant, Studio, Dark fantasy, Chevalier, Monstres, Magie, RPG, Brume, Jeux',
+        'keywords' => 'Indépendant, Studio, Dark fantasy, Chevalier, Monstres, Magie, RPG, Brume, Jeux, Ancien, Magique, Étrange',
         'inLanguage' => 'fr',
         'url' => $origin . '/jeu',
     ];
