@@ -83,8 +83,8 @@ $router->get('/', static function (): void {
     render_page('accueil', [
         'route' => 'accueil',
         'canonicalPath' => '/',
-        'title' => 'Flexarion | Studio de jeux vidéo indépendant à Aix-en-Provence',
-        'description' => "Flexarion, studio indépendant d'Aix-en-Provence, forge des jeux vidéo mêlant dark fantasy brutale et technologies oubliées.",
+        'title' => 'Flexarion | Studio indépendant de jeux RPG Dark Fantasy',
+        'description' => "Flexarion, studio indépendant de jeux vidéo RPG dark fantasy à Aix-en-Provence : chevalier, monstres, magie et brume.",
     ]);
 });
 
@@ -101,8 +101,8 @@ $router->get('/jeu', static function (): void {
     render_page('jeu', [
         'route' => 'jeu',
         'canonicalPath' => '/jeu',
-        'title' => 'Chronos & Steel | Le jeu de Flexarion',
-        'description' => 'Chronos & Steel : combat viscéral, artisanat runique et exploration labyrinthique dans un univers dark médiéval sci-fi.',
+        'title' => 'Chronos & Steel | Jeu RPG Dark Fantasy — Studio Flexarion',
+        'description' => 'Chronos & Steel, jeu RPG dark fantasy du studio indépendant Flexarion : incarnez un chevalier face aux monstres dans la brume, entre acier et magie.',
     ]);
 });
 

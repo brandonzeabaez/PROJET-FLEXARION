@@ -84,10 +84,9 @@ ob_start();
         </ul>
       </nav>
       <ul class="socials">
-        <li><a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-discord"/></svg></a></li>
         <li><a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg></a></li>
-        <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
         <li><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-youtube"/></svg></a></li>
+        <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram (nouvel onglet)"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
       </ul>
     </div>
   </footer>
@@ -111,6 +110,7 @@ if ($activeRoute === 'contact') {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= Security::e($pageTitle) ?></title>
   <meta name="description" content="<?= Security::e($pageDescription) ?>">
+  <meta name="keywords" content="Indépendant, Studio, Dark fantasy, Chevalier, Monstres, Magie, RPG, Brume, Jeux">
   <meta name="robots" content="<?= Security::e($robotsMeta) ?>">
   <meta name="google-site-verification" content="7XLqY0Jd9aXP0d6MUeKYHNRb3oMgO7QJDVEXa4S5FDY">
   <link rel="canonical" href="<?= Security::e($canonicalUrl) ?>">
@@ -146,7 +146,8 @@ if ($activeRoute === 'jeu') {
         '@type' => 'VideoGame',
         'name' => 'Chronos & Steel',
         'author' => ['@type' => 'Organization', 'name' => 'Flexarion'],
-        'genre' => ['Action RPG', 'Dark Fantasy', 'Sci-Fi'],
+        'genre' => ['RPG', 'Dark fantasy', 'Action'],
+        'keywords' => 'Indépendant, Studio, Dark fantasy, Chevalier, Monstres, Magie, RPG, Brume, Jeux',
         'inLanguage' => 'fr',
         'url' => $origin . '/jeu',
     ];
