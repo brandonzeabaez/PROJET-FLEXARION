@@ -32,6 +32,7 @@
                 <li><strong>Démo jouable sur place :</strong> venez essayer <em>Mystical Knight</em> directement sur notre stand et affrontez les ténèbres en solo ou en coopération.</li>
                 <li><strong>Rencontre avec l'équipe :</strong> échangez avec les créateurs du studio Flexarion sur le développement, le lore et les mécaniques du jeu.</li>
                 <li><strong>Flyer officiel distribué sur le stand :</strong> repartez avec notre flyer collector contenant le QR code d'accès direct au site pour rejoindre l'aventure.</li>
+                <li><strong>Merchandising éventuel sur le stand :</strong> nous envisageons également de proposer à la vente des <strong>t-shirts</strong> et des <strong>casquettes</strong> à l'effigie de Flexarion.</li>
               </ul>
 
               <div class="announcement__actions">
@@ -59,6 +60,43 @@
                 Flyer officiel qui sera distribué sur notre stand à la Paris Games Week.
               </figcaption>
             </figure>
+          </div>
+
+          <div class="announcement__merch" aria-labelledby="pgw-merch-title">
+            <h3 id="pgw-merch-title" class="announcement__merch-title">
+              <svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg> Merchandising envisagé sur le stand
+            </h3>
+            <p class="announcement__merch-note">
+              En plus des démonstrations et des flyers, nous prévoyons éventuellement de vendre des t-shirts et des casquettes Flexarion directement sur place.
+            </p>
+            <div class="announcement__merch-grid">
+              <figure class="merch-card">
+                <a href="/assets/img/merch-tshirt-flexarion.jpg" target="_blank" rel="noopener noreferrer" aria-label="Voir le visuel du t-shirt Flexarion en grand (nouvel onglet)">
+                  <img
+                    src="/assets/img/merch-tshirt-flexarion.jpg"
+                    alt="Aperçu du t-shirt gris foncé avec le logo métallique et ornemental Flexarion"
+                    width="765"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </a>
+                <figcaption>T-shirt Flexarion</figcaption>
+              </figure>
+              <figure class="merch-card">
+                <a href="/assets/img/merch-casquette-flexarion.jpg" target="_blank" rel="noopener noreferrer" aria-label="Voir le visuel de la casquette Flexarion en grand (nouvel onglet)">
+                  <img
+                    src="/assets/img/merch-casquette-flexarion.jpg"
+                    alt="Aperçu de la casquette gris anthracite délavée avec écusson brodé Flexarion"
+                    width="1024"
+                    height="1024"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </a>
+                <figcaption>Casquette Flexarion</figcaption>
+              </figure>
+            </div>
           </div>
         </article>
 
