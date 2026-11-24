@@ -59,7 +59,10 @@
 
           <article class="devlog devlog--blood box-glow-dark-red reveal" aria-labelledby="devlog-1">
             <div class="devlog__media">
-              <img src="/assets/img/devlog-environment.svg" alt="Illustration : une cathédrale gothique reliée par des câbles haute tension" width="600" height="400" loading="lazy" decoding="async">
+              <picture>
+                <source srcset="/assets/img/devlog-marais.webp" type="image/webp">
+                <img src="/assets/img/devlog-marais.jpg" alt="Concept art d'un marais brumeux avec un ponton de bois, des pierres runiques et des feux follets magiques" width="800" height="447" loading="lazy" decoding="async">
+              </picture>
             </div>
             <div class="devlog__body">
               <div class="devlog__meta">
