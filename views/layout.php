@@ -133,6 +133,10 @@ $schema = [
     'name' => 'Flexarion',
     'url' => $origin . '/',
     'logo' => $origin . '/assets/img/logo-flexarion.webp',
+    'founder' => [
+        ['@type' => 'Person', 'name' => 'Thomas Serra'],
+        ['@type' => 'Person', 'name' => 'Brandon Zea Baez'],
+    ],
     'sameAs' => [
         'https://www.tiktok.com/@flexarion__studio',
         'https://www.youtube.com/@MysticalKnight-l9w',
@@ -149,9 +153,11 @@ if ($activeRoute === 'jeu') {
     $schema = [
         '@context' => 'https://schema.org',
         '@type' => 'VideoGame',
-        'name' => 'Chronos & Steel',
+        'name' => 'Mystical Knight',
         'author' => ['@type' => 'Organization', 'name' => 'Flexarion'],
-        'genre' => ['RPG', 'Dark fantasy', 'Action'],
+        'genre' => ['Souls-like', 'RPG', 'Dark fantasy', 'Science-fiction'],
+        'playMode' => ['SinglePlayer', 'CoOp', 'MultiPlayer'],
+        'isAccessibleForFree' => true,
         'keywords' => 'Indépendant, Studio, Dark fantasy, Chevalier, Monstres, Magie, RPG, Brume, Jeux',
         'inLanguage' => 'fr',
         'url' => $origin . '/jeu',

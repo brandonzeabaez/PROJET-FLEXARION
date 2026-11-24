@@ -6,7 +6,7 @@
         <h1 id="hero-title" class="hero__title">
           Là où le <span class="iron">fer ancien</span><br> rencontre <span class="text-blood glow-dark-red">l'abîme numérique</span>.
         </h1>
-        <p class="hero__text">Nous forgeons des expériences intenses mêlant dark fantasy brutale et technologies oubliées.</p>
+        <p class="hero__text">Créateurs de <strong>Mystical Knight</strong>, un souls-like gratuit de science-fiction dark fantasy jouable en coop de 1 à 4 joueurs.</p>
         <div class="hero__actions">
           <a class="btn btn--blood btn--lg" href="/jeu">
             <svg class="icon" aria-hidden="true"><use href="#i-gamepad-2"/></svg> Découvrir le jeu

@@ -49,9 +49,9 @@
                 <span class="sep" aria-hidden="true">|</span>
                 <span class="tag"><svg class="icon" aria-hidden="true"><use href="#i-tag"/></svg>Art &amp; Worldbuilding</span>
               </div>
-              <h2 id="devlog-1" class="devlog__title">Devlog #01 : Naissance d'Aix-Nova</h2>
+              <h2 id="devlog-1" class="devlog__title">Devlog #01 : Genèse de Mystical Knight</h2>
               <p class="devlog__excerpt">
-                De la première esquisse sur papier à l'intégration dans le moteur de jeu : plongée dans les choix artistiques qui définissent l'atmosphère sombre de notre cité-forteresse. Comment mélanger l'architecture gothique avec des câbles haute tension ?
+                De la première esquisse sur papier à l'intégration dans le moteur de jeu : plongée dans les choix artistiques qui définissent l'atmosphère sombre de notre univers. Comment mélanger l'architecture gothique avec la science-fiction et la brume ?
               </p>
               <details>
                 <summary class="btn btn--blood btn--sm">
@@ -61,7 +61,7 @@
                 <div class="devlog__full">
                   <h3 class="sr-only">Suite de l'article</h3>
                   <h4>Des croquis aux blocs 3D</h4>
-                  <p>Aix-Nova est née d'une question simple : à quoi ressemblerait une cathédrale construite par des survivants ayant oublié la fonction des machines ? Les premiers croquis mélangeaient arcs-boutants et antennes paraboliques.</p>
+                  <p>Mystical Knight est né d'une question simple : à quoi ressemblerait un monde de chevaliers et de magie bâti sur les ruines d'une civilisation technologique ? Les premiers croquis mélangeaient arcs-boutants et reliques sci-fi.</p>
                   <h4>Une palette de sang et de rouille</h4>
                   <p>Nous avons limité la palette à des noirs profonds et des rouges saturés. Les seules sources de lumière proviennent des câbles et des vitraux, ce qui guide naturellement le joueur dans les ruelles.</p>
                 </div>

@@ -364,6 +364,7 @@ main:focus { outline: none; }
 
 .grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
 @media (min-width: 640px) {
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1024px) {

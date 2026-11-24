@@ -92,8 +92,8 @@ $router->get('/studio', static function (): void {
     render_page('studio', [
         'route' => 'studio',
         'canonicalPath' => '/studio',
-        'title' => 'Le Studio | Flexarion',
-        'description' => "Découvrez l'équipe de Flexarion : vétérans et jeunes talents réunis à Aix-en-Provence pour créer des mondes dark fantasy sci-fi.",
+        'title' => 'Le Studio | Flexarion — Thomas Serra & Brandon Zea Baez',
+        'description' => "Découvrez Flexarion, studio indépendant fondé par Thomas Serra et Brandon Zea Baez, créateurs du souls-like dark fantasy & science-fiction Mystical Knight.",
     ]);
 });
 
@@ -101,8 +101,8 @@ $router->get('/jeu', static function (): void {
     render_page('jeu', [
         'route' => 'jeu',
         'canonicalPath' => '/jeu',
-        'title' => 'Chronos & Steel | Jeu RPG Dark Fantasy — Studio Flexarion',
-        'description' => 'Chronos & Steel, jeu RPG dark fantasy du studio indépendant Flexarion : incarnez un chevalier face aux monstres dans la brume, entre acier et magie.',
+        'title' => 'Mystical Knight | Jeu Souls-Like Dark Fantasy & Sci-Fi — Flexarion',
+        'description' => 'Mystical Knight : souls-like gratuit de science-fiction dark fantasy jouable de 1 à 4 joueurs en multijoueur, avec extensions DLC (skins, animations, emotes, lore) et mods communautaires.',
     ]);
 });
 
@@ -111,7 +111,7 @@ $router->get('/devlogs', static function (): void {
         'route' => 'devlogs',
         'canonicalPath' => '/devlogs',
         'title' => 'Devlogs | Journal de développement | Flexarion',
-        'description' => 'Suivez le développement de Chronos & Steel par Flexarion : coulisses, système de combat, direction artistique et worldbuilding.',
+        'description' => 'Suivez le développement de Mystical Knight par Flexarion : coulisses, système de combat souls-like, multijoueur, direction artistique et lore.',
     ]);
 });
 
