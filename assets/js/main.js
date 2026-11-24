@@ -240,12 +240,28 @@
   var trailer = document.querySelector("[data-trailer]");
   if (trailer) {
     var btn = trailer.querySelector(".trailer__btn");
+  /* ---------- Lecteurs vidéo (façade : rien n'est chargé avant le clic) ---------- */
+  document.querySelectorAll("[data-trailer], [data-video]").forEach(function (box) {
+    var btn = box.querySelector(".trailer__btn");
+    if (!btn) return;
     btn.addEventListener("click", function () {
       var id = trailer.getAttribute("data-youtube-id");
       if (!id) {
         var label = trailer.querySelector(".trailer__label");
         label.textContent = "Bande-annonce bientôt disponible";
         label.setAttribute("role", "status");
+      var ytId = box.getAttribute("data-youtube-id");
+      var localSrc = box.getAttribute("data-video-src");
+      var title = box.getAttribute("data-video-title") || "Vidéo Flexarion";
+
+      if (ytId) {
+        var iframe = document.createElement("iframe");
+        iframe.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(ytId) + "?autoplay=1&rel=0";
+        iframe.title = title;
+        iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        box.replaceChildren(iframe);
+        iframe.focus();
         return;
       }
       var iframe = document.createElement("iframe");
@@ -255,8 +271,27 @@
       iframe.allowFullscreen = true;
       trailer.replaceChildren(iframe);
       iframe.focus();
+
+      if (localSrc) {
+        var video = document.createElement("video");
+        video.src = localSrc;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.setAttribute("aria-label", title);
+        box.replaceChildren(video);
+        video.focus();
+        return;
+      }
+
+      var label = box.querySelector(".trailer__label");
+      if (label) {
+        label.textContent = "Vidéo bientôt disponible";
+        label.setAttribute("role", "status");
+      }
     });
   }
+  });
 
   /* ---------- Formulaire de contact (validation + envoi AJAX vers PHP) ---------- */
   var form = document.getElementById("contact-form");

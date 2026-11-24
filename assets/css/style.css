@@ -728,6 +728,26 @@ main:focus { outline: none; }
   border-radius: 2px;
 }
 .trailer iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.trailer iframe,
+.trailer video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+
+.video-showcase { margin-top: 4rem; }
+@media (min-width: 768px) { .video-showcase { margin-top: 5rem; } }
+.video-showcase__title {
+  margin-bottom: 2rem;
+  font-family: var(--font-medieval);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  text-align: center;
+}
+.video-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+@media (min-width: 768px) { .video-grid { grid-template-columns: 1fr 1fr; } }
+.video-grid .trailer { margin: 0; max-width: none; }
+.video-card__caption {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-align: center;
+}
 
 .pillar {
   padding: 2rem;

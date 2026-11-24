@@ -102,6 +102,7 @@ final class Security
             "style-src 'self' 'nonce-{$nonce}'",
             "img-src 'self' data:",
             "font-src 'self'",
+            "media-src 'self'",
             "connect-src 'self'",
             "frame-src https://www.youtube-nocookie.com",
             "form-action 'self'",
