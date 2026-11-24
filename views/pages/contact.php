@@ -69,15 +69,6 @@ $statusIcon = $formSuccess ? '#i-circle-check' : '#i-circle-alert';
 
         <!-- Infos -->
         <div class="aside">
-          <section class="panel box-glow-dark-red info-card" aria-labelledby="press-title">
-            <svg class="icon info-card__icon text-blood" aria-hidden="true"><use href="#i-file-archive"/></svg>
-            <h2 id="press-title">Presse &amp; Créateurs</h2>
-            <p>Vous êtes journaliste ou streameur ? Récupérez nos visuels officiels, logos et informations clés.</p>
-            <a class="btn btn--blood btn--sm btn--block" href="mailto:presse@flexarion.fr?subject=Demande%20de%20kit%20presse">
-              <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Demander le kit presse
-            </a>
-          </section>
-
           <section class="panel panel--plain info-card" aria-labelledby="loc-title">
             <svg class="icon info-card__icon text-muted" aria-hidden="true"><use href="#i-map-pin"/></svg>
             <h2 id="loc-title" class="info-card__title--sm">Localisation</h2>
@@ -85,7 +76,7 @@ $statusIcon = $formSuccess ? '#i-circle-check' : '#i-circle-alert';
               Studio Flexarion<br>
               13100 Aix-en-Provence<br>
               France<br>
-              <a class="mail-link" href="mailto:contact@flexarion.fr">contact@flexarion.fr</a>
+              <a class="mail-link" href="mailto:mysticalknight2@gmail.com">mysticalknight2@gmail.com</a>
             </address>
           </section>
         </div>
