@@ -236,20 +236,11 @@
     });
   }
 
-  /* ---------- Bande-annonce (façade : la vidéo n'est chargée qu'au clic) ---------- */
-  var trailer = document.querySelector("[data-trailer]");
-  if (trailer) {
-    var btn = trailer.querySelector(".trailer__btn");
   /* ---------- Lecteurs vidéo (façade : rien n'est chargé avant le clic) ---------- */
   document.querySelectorAll("[data-trailer], [data-video]").forEach(function (box) {
     var btn = box.querySelector(".trailer__btn");
     if (!btn) return;
     btn.addEventListener("click", function () {
-      var id = trailer.getAttribute("data-youtube-id");
-      if (!id) {
-        var label = trailer.querySelector(".trailer__label");
-        label.textContent = "Bande-annonce bientôt disponible";
-        label.setAttribute("role", "status");
       var ytId = box.getAttribute("data-youtube-id");
       var localSrc = box.getAttribute("data-video-src");
       var title = box.getAttribute("data-video-title") || "Vidéo Flexarion";
@@ -264,13 +255,6 @@
         iframe.focus();
         return;
       }
-      var iframe = document.createElement("iframe");
-      iframe.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id) + "?autoplay=1&rel=0";
-      iframe.title = "Bande-annonce de Chronos & Steel";
-      iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
-      iframe.allowFullscreen = true;
-      trailer.replaceChildren(iframe);
-      iframe.focus();
 
       if (localSrc) {
         var video = document.createElement("video");
@@ -290,7 +274,6 @@
         label.setAttribute("role", "status");
       }
     });
-  }
   });
 
   /* ---------- Formulaire de contact (validation + envoi AJAX vers PHP) ---------- */
@@ -301,13 +284,14 @@
 
     function validateField(input) {
       var field = input.closest(".field");
+      if (!field) return true;
       var valid = input.checkValidity();
       field.classList.toggle("has-error", !valid);
       input.setAttribute("aria-invalid", String(!valid));
       return valid;
     }
 
-    form.querySelectorAll("input, textarea").forEach(function (input) {
+    form.querySelectorAll(".field input, .field textarea").forEach(function (input) {
       input.addEventListener("blur", function () {
         if (input.value.trim() !== "") validateField(input);
       });
@@ -321,7 +305,7 @@
       status.className = "form-status";
 
       var firstInvalid = null;
-      form.querySelectorAll("input, textarea").forEach(function (input) {
+      form.querySelectorAll(".field input, .field textarea").forEach(function (input) {
         if (!validateField(input) && !firstInvalid) firstInvalid = input;
       });
 
