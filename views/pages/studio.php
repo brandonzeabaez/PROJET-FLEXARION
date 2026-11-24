@@ -13,7 +13,7 @@
         <ul class="grid grid--2" role="list">
           <li class="team-card box-glow-red reveal">
             <div class="team-card__avatar">
-              <img src="/assets/img/team-marc.svg" alt="Portrait stylisé de Thomas Serra" width="128" height="128" loading="lazy" decoding="async">
+              <img src="/assets/img/team-thomas.jpg" alt="Portrait stylisé de Thomas Serra" width="273" height="268" loading="lazy" decoding="async">
             </div>
             <h3 class="team-card__name">Thomas Serra</h3>
             <p class="team-card__role text-crimson">Co-fondateur &amp; Développeur</p>
@@ -21,7 +21,7 @@
           </li>
           <li class="team-card team-card--blood box-glow-dark-red reveal">
             <div class="team-card__avatar">
-              <img src="/assets/img/team-lucas.svg" alt="Portrait stylisé de Brandon Zea Baez" width="128" height="128" loading="lazy" decoding="async">
+              <img src="/assets/img/team-brandon.jpg" alt="Portrait stylisé de Brandon Zea Baez" width="334" height="268" loading="lazy" decoding="async">
             </div>
             <h3 class="team-card__name">Brandon Zea Baez</h3>
             <p class="team-card__role text-blood">Co-fondateur &amp; Développeur</p>
