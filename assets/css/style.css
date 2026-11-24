@@ -877,6 +877,8 @@ main:focus { outline: none; }
 }
 .devlog__full p + p { margin-top: 1rem; }
 .devlog__full h4 { font-family: var(--font-medieval); font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+.devlog__full ul { margin: 1rem 0 0 1.25rem; display: grid; gap: 0.75rem; }
+.devlog__full a { color: var(--crimson-text); text-decoration: underline; text-underline-offset: 3px; }
 
 /* =========================================================
    CONTACT
